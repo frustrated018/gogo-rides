@@ -1,20 +1,29 @@
 import Link from "next/link";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const NavHome = () => {
   return (
     <header className="bg-background border-b">
-      <section className="p-6 flex justify-between">
-        <Link href="/" className="text-xl font-semibold">GOGO Rides</Link>
-        <div className="space-x-5">
-        <Link href="/">Home</Link>
-        <Link href="/">Add Product</Link>
-        <Link href="/">My Cart</Link>
+      <section className="p-6 flex justify-between items-center">
+        <Link href="/" className="text-xl font-semibold">
+          GOGO Rides
+        </Link>
+        <div className="flex items-center gap-5">
+          <Link href="/">Home</Link>
+          <Link href="/">Add Product</Link>
+          <Link href="/">My Cart</Link>
         </div>
-        <div className="space-x-2">
+        <div className="gap-5 flex items-center">
           {/* Conditional */}
-        <Link href="/">Login</Link>
-        <Link href="/">Theme Toggle</Link>
-        <Link href="/">Avatar</Link>
+          <Link href="/">Login</Link>
+          <ThemeToggle />
+          <Link href="/">
+            <Avatar>
+              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+          </Link>
         </div>
       </section>
     </header>
