@@ -16,7 +16,7 @@ const NavHome = () => {
         </div>
         <div className="gap-5 flex items-center">
           {/* Conditional */}
-          <Link href="/">Login</Link>
+          <Link href="/login">Login</Link>
           <ThemeToggle />
           <Link href="/">
             <Avatar>
