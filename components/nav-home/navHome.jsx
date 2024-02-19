@@ -11,8 +11,8 @@ const NavHome = () => {
         </Link>
         <div className="flex items-center gap-5">
           <Link href="/">Home</Link>
-          <Link href="/">Add Product</Link>
-          <Link href="/">My Cart</Link>
+          <Link href="/add">Add Product</Link>
+          <Link href="/cart">My Cart</Link>
         </div>
         <div className="gap-5 flex items-center">
           {/* Conditional */}
