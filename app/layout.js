@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/lib/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         >
           <main>{children}</main>
         </ThemeProvider>
+        <Toaster richColors closeButton position="top-right" invert={true} />
       </body>
     </html>
   );

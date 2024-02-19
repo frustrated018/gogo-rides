@@ -2,6 +2,7 @@
 
 import connect from "@/database/db";
 import User from "@/database/models/user";
+import { redirect } from "next/navigation";
 
 export async function createUser(formData) {
   const rawFormData = {
@@ -10,7 +11,7 @@ export async function createUser(formData) {
     password: formData.get("password"),
     photoUrl: formData.get("photoUrl"),
   };
-  console.log("Raw Data: ", rawFormData);
+  //   console.log("Raw Data: ", rawFormData);
 
   try {
     await connect();
@@ -20,8 +21,11 @@ export async function createUser(formData) {
     const newUser = new User(rawFormData);
     await newUser.save();
 
-    console.log("new user:", newUser);
+    // redirect user to the home page
+
+    // console.log("new user:", newUser);
   } catch (error) {
-    throw error;
+    throw new Error("Failed to Add User To the Database", { cause: error });
   }
+  redirect("/");
 }

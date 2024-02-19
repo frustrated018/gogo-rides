@@ -4,7 +4,9 @@ import { createUser } from "@/actions/auth-actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useRef } from "react";
 import { useFormStatus } from "react-dom";
+import { toast } from "sonner";
 
 //! Submit button based on state
 function SubmitButton() {
@@ -18,13 +20,25 @@ function SubmitButton() {
 }
 
 const SignupForm = () => {
+  const formRef = useRef();
   return (
     <div className="w-full flex flex-col justify-center items-center">
       <h2 className="text-2xl font-semibold mb-5">Sign Up</h2>
       <form
-      //! Server action to create User
+        ref={formRef}
+        //! Server action to create User
         action={async (formData) => {
-          await createUser(formData);
+          try {
+            // here i will show toast and reset form || Toast will be Welcome to site or something
+            await createUser(formData);
+            formRef.current.reset();
+            toast.success("User added to the database(for now)", {
+              duration: 4000,
+            });
+          } catch (error) {
+            console.log(error);
+            toast.error(`${error}`);
+          }
         }}
         className="w-[90%] max-w-md mx-auto flex-grow space-y-3"
       >
