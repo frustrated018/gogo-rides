@@ -1,11 +1,16 @@
 import NavHome from "@/components/nav-home/navHome";
-import { dummyCarData } from "@/database/dummy-data";
 import VehicleGrid from "./vehicle-grid";
+import { findAllVehicles } from "@/actions/vehicles-actions";
 
-const Vehicles = () => {
-  //! fetch Data form db and pass it down there
-
-  const data = dummyCarData;
+const Vehicles = async () => {
+  let data = [];
+  try {
+    data = await findAllVehicles();
+    // console.log("Data fetched successfully:", data);
+  } catch (error) {
+    console.error("Error fetching vehicle data:", error);
+    // Handle the error here.. Maybe display an error message to the user
+  }
 
   return (
     <>
@@ -15,9 +20,12 @@ const Vehicles = () => {
           Total Vehicles listed for sale: ({data.length})
         </h2>
         {/* //TODO: maybe add some filtering options and search? */}
-
+        {data.length > 0 ? (
+          <VehicleGrid data={data} />
+        ) : (
+          <h2>No vehicles available</h2>
+        )}
         {/* Mapping and showing cards */}
-        <VehicleGrid data={data} />
       </section>
     </>
   );
