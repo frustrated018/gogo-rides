@@ -1,6 +1,4 @@
 import { findVehicleById } from "@/actions/vehicles-actions";
-import FooterHome from "@/components/footer-home/footerHome";
-import NavHome from "@/components/nav-home/navHome";
 
 import {
   Card,
@@ -11,6 +9,8 @@ import {
 import { DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 import AddToCart from "./add-to-cart";
+import NavHome from "@/components/Home/nav-home/navHome";
+import FooterHome from "@/components/Home/footer-home/footerHome";
 
 const VehicleDetails = async ({ params }) => {
   let vehicle = [];

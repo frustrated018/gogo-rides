@@ -1,7 +1,7 @@
 "use client";
 import { auth } from "@/firebase/config";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import Link from "next/link";
 import { toast } from "sonner";
 

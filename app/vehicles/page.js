@@ -1,6 +1,7 @@
-import NavHome from "@/components/nav-home/navHome";
+import NavHome from "@/components/Home/nav-home/navHome";
 import VehicleGrid from "./vehicle-grid";
 import { findAllVehicles } from "@/actions/vehicles-actions";
+import FooterHome from "@/components/Home/footer-home/footerHome";
 
 const Vehicles = async () => {
   let data = [];
@@ -27,6 +28,7 @@ const Vehicles = async () => {
         )}
         {/* Mapping and showing cards */}
       </section>
+      <FooterHome />
     </>
   );
 };

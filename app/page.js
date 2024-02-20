@@ -1,5 +1,5 @@
-import FooterHome from "@/components/footer-home/footerHome";
-import NavHome from "@/components/nav-home/navHome";
+import FooterHome from "@/components/Home/footer-home/footerHome";
+import NavHome from "@/components/Home/nav-home/navHome";
 
 function Home() {
   return (

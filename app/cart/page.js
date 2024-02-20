@@ -1,4 +1,4 @@
-import NavHome from "@/components/nav-home/navHome";
+import NavHome from "@/components/Home/nav-home/navHome";
 
 const MyCart = () => {
   return (
