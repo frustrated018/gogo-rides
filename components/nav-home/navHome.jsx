@@ -3,6 +3,8 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 import LoginLogout from "./login-logout";
 import UserAvatar from "./user-avatar";
 
+//TODO: Make this thing responsive
+
 const NavHome = () => {
   return (
     <header className="bg-background border-b">
