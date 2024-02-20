@@ -2,7 +2,6 @@
 
 import connect from "@/database/db";
 import User from "@/database/models/user";
-import { redirect } from "next/navigation";
 
 export async function createUser(formData) {
   const rawFormData = {
@@ -27,5 +26,4 @@ export async function createUser(formData) {
   } catch (error) {
     throw new Error("Failed to Add User To the Database", { cause: error });
   }
-  redirect("/");
 }

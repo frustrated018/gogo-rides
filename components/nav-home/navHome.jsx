@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import LoginLogout from "./login-logout";
 
 const NavHome = () => {
   return (
@@ -15,13 +16,14 @@ const NavHome = () => {
           <Link href="/cart">My Cart</Link>
         </div>
         <div className="gap-5 flex items-center">
-          {/* Conditional */}
-          <Link href="/login">Login</Link>
+          {/* buttons */}
+          <LoginLogout />
+
           <ThemeToggle />
           <Link href="/">
             <Avatar>
               <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarFallback>DP</AvatarFallback>
             </Avatar>
           </Link>
         </div>

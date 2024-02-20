@@ -4,9 +4,15 @@ import { createUser } from "@/actions/auth-actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { auth } from "@/firebase/config";
 import { useRef } from "react";
 import { useFormStatus } from "react-dom";
 import { toast } from "sonner";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
+import { useRouter } from "next/navigation";
 
 //! Submit button based on state
 function SubmitButton() {
@@ -21,6 +27,12 @@ function SubmitButton() {
 
 const SignupForm = () => {
   const formRef = useRef();
+  const router = useRouter();
+
+  const [createUserWithEmailAndPassword] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [updateProfile] = useUpdateProfile(auth);
+
   return (
     <div className="w-full flex flex-col justify-center items-center">
       <h2 className="text-2xl font-semibold mb-5">Sign Up</h2>
@@ -28,11 +40,34 @@ const SignupForm = () => {
         ref={formRef}
         //! Server action to create User
         action={async (formData) => {
+          const password = formData.get("password");
+          const email = formData.get("email");
+          const name = formData.get("name");
+          const photoUrl = formData.get("photoUrl");
           try {
-            // here i will show toast and reset form || Toast will be Welcome to site or something
-            await createUser(formData);
+            const addUser = await createUser(formData);
+
+            const createFirebasaeUser = await createUserWithEmailAndPassword(
+              email,
+              password
+            );
+
+            const updateFirebaseUser = await updateProfile({
+              displayName: name,
+              photoURL: photoUrl || "",
+            });
+
+            // Waiting for promises to resolve
+            await Promise.all([
+              addUser,
+              createFirebasaeUser,
+              updateFirebaseUser,
+            ]);
+
+            // resetting form & Showing toast
             formRef.current.reset();
-            toast.success("User added to the database(for now)", {
+            router.push("/");
+            toast.success("Hi! Welcome to our site.", {
               duration: 4000,
             });
           } catch (error) {
@@ -88,7 +123,6 @@ const SignupForm = () => {
         </div>
 
         <SubmitButton />
-        {/* <Button type="submit">Sign Up with Email</Button> */}
       </form>
     </div>
   );
