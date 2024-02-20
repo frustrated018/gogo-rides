@@ -1,6 +1,7 @@
 import { findVehicleById } from "@/actions/vehicles-actions";
+import FooterHome from "@/components/footer-home/footerHome";
 import NavHome from "@/components/nav-home/navHome";
-import { Button } from "@/components/ui/button";
+
 import {
   Card,
   CardContent,
@@ -8,8 +9,8 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
-import { PlusIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
+import AddToCart from "./add-to-cart";
 
 const VehicleDetails = async ({ params }) => {
   let vehicle = [];
@@ -52,12 +53,11 @@ const VehicleDetails = async ({ params }) => {
             <p>{details}</p>
           </CardContent>
           <CardFooter>
-            <Button className="gap-2 text-lg">
-              Add to cart <PlusIcon className="h-5 w-5" />
-            </Button>
+            <AddToCart />
           </CardFooter>
         </section>
       </Card>
+      <FooterHome />
     </>
   );
 };
