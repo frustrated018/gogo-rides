@@ -14,6 +14,7 @@ const NavHome = () => {
           <Link href="/">Home</Link>
           <Link href="/add">Add Product</Link>
           <Link href="/cart">My Cart</Link>
+          <Link href="/vehicles">All Vehicles</Link>
         </div>
         <div className="gap-5 flex items-center">
           <LoginLogout />
