@@ -10,17 +10,21 @@ import { useFormStatus } from "react-dom";
 import { toast } from "sonner";
 import {
   useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useRouter } from "next/navigation";
 import { ReloadIcon } from "@radix-ui/react-icons";
+import { FaGoogle } from "react-icons/fa6";
 
 //! Submit button based on state
 function SubmitButton() {
+  const router = useRouter();
   const { pending } = useFormStatus();
+  const [signInWithGoogle] = useSignInWithGoogle(auth);
 
   return (
-    <>
+    <div className="flex justify-center items-center gap-2 md:gap-5 flex-col sm:flex-row">
       {pending ? (
         <Button disabled>
           <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
@@ -29,7 +33,25 @@ function SubmitButton() {
       ) : (
         <Button type="submit">Signup with email</Button>
       )}
-    </>
+      <p>Or</p>
+      <Button
+        onClick={async () => {
+          try {
+            await signInWithGoogle();
+            // TODO: make a db call to check if user already exisits
+
+            toast.success("Welcome to GOGO Rides!");
+            router.push("/");
+          } catch (error) {
+            // TODO: Throw error from db
+            toast.error("Couldn't sign up using Google!");
+          }
+        }}
+        className="flex justify-center items-center gap-2"
+      >
+        <FaGoogle /> Google
+      </Button>
+    </div>
   );
 }
 

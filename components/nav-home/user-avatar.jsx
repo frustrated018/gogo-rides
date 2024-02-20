@@ -10,7 +10,7 @@ const UserAvatar = () => {
     <>
       <Avatar>
         <AvatarImage
-          src={user ? user.photoURL : "https://github.com/shadcn.png"}
+          src={user ? user?.photoURL : "https://github.com/shadcn.png"}
         />
         <AvatarFallback>{user?.displayName}</AvatarFallback>
       </Avatar>
