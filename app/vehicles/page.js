@@ -9,9 +9,9 @@ const Vehicles = () => {
 
   return (
     <>
-      {/* <NavHome /> */}
-      <section className="min-h-screen p-4 xl:p-6">
-        <h2 className="text-4xl">
+      <NavHome />
+      <section className="min-h-screen">
+        <h2 className="text-lg md:text-xl xl:text-4xl ml-5 mt-10">
           Total Vehicles listed for sale: ({data.length})
         </h2>
         {/* //TODO: maybe add some filtering options and search? */}

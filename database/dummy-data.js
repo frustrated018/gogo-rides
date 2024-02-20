@@ -1,7 +1,7 @@
 export const dummyCarData = [
   {
     image:
-      "https://source.unsplash.com/blue-coupe-beside-gray-house-p7tai9P7H-s",
+      "https://source.unsplash.com/gray-mercedes-benz-coupe-on-black-asphalt-road-during-daytime-_4sWbzH5fp8",
     name: "Toyota Camry",
     type: "Sedan",
     price: "$25,000",
@@ -12,7 +12,7 @@ export const dummyCarData = [
   },
   {
     image:
-      "https://source.unsplash.com/blue-coupe-beside-gray-house-p7tai9P7H-s",
+      "https://source.unsplash.com/gray-mercedes-benz-coupe-on-black-asphalt-road-during-daytime-_4sWbzH5fp8",
     name: "Honda Civic",
     type: "Compact",
     price: "$22,000",
@@ -23,7 +23,7 @@ export const dummyCarData = [
   },
   {
     image:
-      "https://source.unsplash.com/blue-coupe-beside-gray-house-p7tai9P7H-s",
+      "https://source.unsplash.com/gray-mercedes-benz-coupe-on-black-asphalt-road-during-daytime-_4sWbzH5fp8",
     name: "Ford F-150",
     type: "Truck",
     price: "$35,000",
@@ -110,8 +110,7 @@ export const dummyCarData = [
       "The Subaru Outback is a versatile crossover offering all-wheel drive and a spacious interior, perfect for outdoor adventures.",
   },
   {
-    image:
-      "https://source.unsplash.com/blue-coupe-beside-gray-house-p7tai9P7H-s",
+    image: "https://source.unsplash.com/black-shelby-car-on-road-YApiWyp0lqo",
     name: "Ford Mustang",
     type: "Sports Car",
     price: "$45,000",
@@ -154,8 +153,7 @@ export const dummyCarData = [
       "The Lamborghini Huracan is an exotic supercar offering breathtaking performance and striking design.",
   },
   {
-    image:
-      "https://source.unsplash.com/blue-coupe-beside-gray-house-p7tai9P7H-s",
+    image: "https://source.unsplash.com/grayscale-photo-of-bmw-m-3-o23qzl3obeI",
     name: "Ferrari 488 GTB",
     type: "Exotic",
     price: "$300,000",
