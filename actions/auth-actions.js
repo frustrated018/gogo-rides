@@ -7,7 +7,6 @@ export async function createUser(formData) {
   const rawFormData = {
     name: formData.get("name"),
     email: formData.get("email"),
-    password: formData.get("password"),
     photoUrl: formData.get("photoUrl"),
   };
   //   console.log("Raw Data: ", rawFormData);
@@ -24,6 +23,7 @@ export async function createUser(formData) {
 
     // console.log("new user:", newUser);
   } catch (error) {
+    console.log(error);
     throw new Error("Failed to Add User To the Database", { cause: error });
   }
 }

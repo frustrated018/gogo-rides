@@ -9,10 +9,7 @@ const LoginLogout = () => {
   const [signOut] = useSignOut(auth);
 
   return (
-    <div className="inline-flex gap-1">
-      <p>Name: </p>
-      <h2>{user ? user.displayName : "No user"}</h2>
-
+    <>
       {user ? (
         <Button
           onClick={async () => {
@@ -29,7 +26,7 @@ const LoginLogout = () => {
           <Button>Login</Button>
         </Link>
       )}
-    </div>
+    </>
   );
 };
 

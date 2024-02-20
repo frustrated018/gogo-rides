@@ -13,15 +13,23 @@ import {
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useRouter } from "next/navigation";
+import { ReloadIcon } from "@radix-ui/react-icons";
 
 //! Submit button based on state
 function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" aria-disabled={pending}>
-      {pending ? "Processing.." : "Signup with email"}
-    </Button>
+    <>
+      {pending ? (
+        <Button disabled>
+          <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+          Please wait
+        </Button>
+      ) : (
+        <Button type="submit">Signup with email</Button>
+      )}
+    </>
   );
 }
 
@@ -67,7 +75,7 @@ const SignupForm = () => {
             // resetting form & Showing toast
             formRef.current.reset();
             router.push("/");
-            toast.success("Hi! Welcome to our site.", {
+            toast.success("Hi! Welcome to GOGO Rides.", {
               duration: 4000,
             });
           } catch (error) {
@@ -86,6 +94,7 @@ const SignupForm = () => {
             type="text"
             autoComplete="name"
             autoCorrect="off"
+            required={true}
           />
         </div>
         <div>
@@ -98,6 +107,7 @@ const SignupForm = () => {
             autoCapitalize="none"
             autoComplete="email"
             autoCorrect="off"
+            required={true}
           />
         </div>
 
@@ -107,6 +117,7 @@ const SignupForm = () => {
             name="password"
             placeholder="****************"
             type="password"
+            required={true}
           />
         </div>
 
@@ -116,9 +127,8 @@ const SignupForm = () => {
             className="w-full"
             name="photoUrl"
             placeholder="https://source.unsplash.com/url-from-da-site"
-            type="text"
-            autoComplete="name"
-            autoCorrect="off"
+            type="url"
+            autoComplete="url"
           />
         </div>
 
