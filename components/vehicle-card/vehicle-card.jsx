@@ -9,9 +9,12 @@ import {
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const VehicleCard = ({ vehicle }) => {
-  const { image, name, type, price, rating, brand_name, details } = vehicle;
+  const { _id, image, name, rating } = vehicle;
+
+  const router = useRouter();
 
   return (
     <Card className="mx-auto">
@@ -33,7 +36,8 @@ const VehicleCard = ({ vehicle }) => {
         <h2>Rating: {rating}</h2>
         <Button
           onClick={() => {
-            toast("Details page coming soon");
+            // toast("Details page coming soon");
+            router.push(`/vehicles/${_id}`);
           }}
         >
           View Details

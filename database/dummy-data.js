@@ -4,7 +4,7 @@ export const dummyCarData = [
       "https://source.unsplash.com/gray-mercedes-benz-coupe-on-black-asphalt-road-during-daytime-_4sWbzH5fp8",
     name: "Toyota Camry",
     type: "Sedan",
-    price: "$25,000",
+    price: "25,000",
     rating: 4.5,
     brand_name: "Toyota",
     details:
@@ -17,7 +17,7 @@ export const dummyCarData = [
       "https://source.unsplash.com/gray-mercedes-benz-coupe-on-black-asphalt-road-during-daytime-_4sWbzH5fp8",
     name: "Honda Civic",
     type: "Compact",
-    price: "$22,000",
+    price: "22,000",
     rating: 4.7,
     brand_name: "Honda",
     details:
@@ -30,7 +30,7 @@ export const dummyCarData = [
       "https://source.unsplash.com/gray-mercedes-benz-coupe-on-black-asphalt-road-during-daytime-_4sWbzH5fp8",
     name: "Ford F-150",
     type: "Truck",
-    price: "$35,000",
+    price: "35,000",
     rating: 4.8,
     brand_name: "Ford",
     details:
@@ -43,7 +43,7 @@ export const dummyCarData = [
       "https://source.unsplash.com/blue-coupe-beside-gray-house-p7tai9P7H-s",
     name: "Chevrolet Silverado",
     type: "Truck",
-    price: "$38,000",
+    price: "38,000",
     rating: 4.6,
     brand_name: "Chevrolet",
     details:
@@ -56,7 +56,7 @@ export const dummyCarData = [
       "https://source.unsplash.com/blue-coupe-beside-gray-house-p7tai9P7H-s",
     name: "Tesla Model 3",
     type: "Electric",
-    price: "$40,000",
+    price: "40,000",
     rating: 4.9,
     brand_name: "Tesla",
     details:
@@ -69,7 +69,7 @@ export const dummyCarData = [
       "https://source.unsplash.com/blue-coupe-beside-gray-house-p7tai9P7H-s",
     name: "BMW 3 Series",
     type: "Luxury",
-    price: "$45,000",
+    price: "45,000",
     rating: 4.7,
     brand_name: "BMW",
     details:
@@ -82,7 +82,7 @@ export const dummyCarData = [
       "https://source.unsplash.com/blue-coupe-beside-gray-house-p7tai9P7H-s",
     name: "Mercedes-Benz E-Class",
     type: "Luxury",
-    price: "$55,000",
+    price: "55,000",
     rating: 4.8,
     brand_name: "Mercedes-Benz",
     details:
@@ -95,7 +95,7 @@ export const dummyCarData = [
       "https://source.unsplash.com/blue-coupe-beside-gray-house-p7tai9P7H-s",
     name: "Audi Q5",
     type: "SUV",
-    price: "$50,000",
+    price: "50,000",
     rating: 4.6,
     brand_name: "Audi",
     details:
@@ -108,7 +108,7 @@ export const dummyCarData = [
       "https://source.unsplash.com/blue-coupe-beside-gray-house-p7tai9P7H-s",
     name: "Jeep Wrangler",
     type: "SUV",
-    price: "$35,000",
+    price: "35,000",
     rating: 4.5,
     brand_name: "Jeep",
     details:
@@ -121,7 +121,7 @@ export const dummyCarData = [
       "https://source.unsplash.com/blue-coupe-beside-gray-house-p7tai9P7H-s",
     name: "Subaru Outback",
     type: "Crossover",
-    price: "$32,000",
+    price: "32,000",
     rating: 4.7,
     brand_name: "Subaru",
     details:
@@ -133,7 +133,7 @@ export const dummyCarData = [
     image: "https://source.unsplash.com/black-shelby-car-on-road-YApiWyp0lqo",
     name: "Ford Mustang",
     type: "Sports Car",
-    price: "$45,000",
+    price: "45,000",
     rating: 4.8,
     brand_name: "Ford",
     details:
@@ -146,7 +146,7 @@ export const dummyCarData = [
       "https://source.unsplash.com/blue-coupe-beside-gray-house-p7tai9P7H-s",
     name: "Chevrolet Corvette",
     type: "Sports Car",
-    price: "$65,000",
+    price: "65,000",
     rating: 4.9,
     brand_name: "Chevrolet",
     details:
@@ -159,7 +159,7 @@ export const dummyCarData = [
       "https://source.unsplash.com/blue-coupe-beside-gray-house-p7tai9P7H-s",
     name: "Porsche 911",
     type: "Sports Car",
-    price: "$100,000",
+    price: "100,000",
     rating: 4.9,
     brand_name: "Porsche",
     details:
@@ -172,7 +172,7 @@ export const dummyCarData = [
       "https://source.unsplash.com/blue-coupe-beside-gray-house-p7tai9P7H-s",
     name: "Lamborghini Huracan",
     type: "Exotic",
-    price: "$250,000",
+    price: "250,000",
     rating: 5.0,
     brand_name: "Lamborghini",
     details:
@@ -184,7 +184,7 @@ export const dummyCarData = [
     image: "https://source.unsplash.com/grayscale-photo-of-bmw-m-3-o23qzl3obeI",
     name: "Ferrari 488 GTB",
     type: "Exotic",
-    price: "$300,000",
+    price: "300,000",
     rating: 4.9,
     brand_name: "Ferrari",
     details:
