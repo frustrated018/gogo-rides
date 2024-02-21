@@ -3,6 +3,7 @@ import BodyStyle from "@/components/Home/body-style/body-style";
 import DealsGrid from "@/components/Home/deals-grid/deals-grid";
 import FooterHome from "@/components/Home/footer-home/footerHome";
 import NavHome from "@/components/Home/nav-home/navHome";
+import Testimonial from "@/components/Home/testimonial/testimonial";
 
 function Home() {
   return (
@@ -12,6 +13,7 @@ function Home() {
       <Banner />
       <DealsGrid />
       <BodyStyle />
+      <Testimonial />
       <FooterHome />
     </>
   );
