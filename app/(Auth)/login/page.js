@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LoginForm from "./login-form";
+import { Suspense } from "react";
 
 const LoginPage = () => {
   return (
@@ -17,7 +18,9 @@ const LoginPage = () => {
         </div>
         {/* //! Right section */}
         <div className="md:w-1/2 w-full min-h-screen flex justify-center items-center flex-col">
-          <LoginForm />
+          <Suspense fallback={<p className="animate-pulse">Loading...</p>}>
+            <LoginForm />
+          </Suspense>
         </div>
       </section>
     </main>

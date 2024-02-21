@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SignupForm from "./signup-form";
+import { Suspense } from "react";
 
 const SignupPage = () => {
   return (
@@ -17,7 +18,9 @@ const SignupPage = () => {
         </div>
         {/* //! Right section */}
         <div className="md:w-1/2 w-full min-h-screen flex justify-center items-center flex-col">
-          <SignupForm />
+          <Suspense fallback={<p className="animate-pulse">Loading...</p>}>
+            <SignupForm />
+          </Suspense>
         </div>
       </section>
     </main>
