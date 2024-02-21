@@ -3,7 +3,8 @@ import { Schema, model, models } from "mongoose";
 const vehicleSchema = new Schema({
   image: { type: String, required: true },
   name: { type: String, required: true },
-  owner: { type: String, required: true },
+  owner_name: { type: String, required: true },
+  owner_email: { type: String, required: true },
   brand_name: { type: String, required: true },
   Details: { type: String, required: true },
   type: { type: String, required: true },
