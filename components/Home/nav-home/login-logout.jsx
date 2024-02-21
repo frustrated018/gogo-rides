@@ -4,10 +4,12 @@ import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { Button } from "../../ui/button";
 import Link from "next/link";
 import { toast } from "sonner";
+import { usePathname } from "next/navigation";
 
 const LoginLogout = () => {
   const [user] = useAuthState(auth);
   const [signOut] = useSignOut(auth);
+  const pathname = usePathname();
 
   return (
     <>
@@ -27,7 +29,7 @@ const LoginLogout = () => {
           Sign Out
         </Button>
       ) : (
-        <Link href="/login">
+        <Link href={`/login?from=${pathname}`}>
           <Button>Login</Button>
         </Link>
       )}

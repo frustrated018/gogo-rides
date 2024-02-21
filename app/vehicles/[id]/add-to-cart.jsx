@@ -27,7 +27,7 @@ const AddToCart = () => {
       const res = await addToCart(vehicleId, userEmail);
       toast.success(res.message);
     } catch (error) {
-      console.log("Error From client: ", error);
+      console.error(error.message);
       toast.error(error.message);
     }
   };
