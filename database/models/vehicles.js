@@ -8,7 +8,7 @@ const vehicleSchema = new Schema({
   Details: { type: String, required: true },
   type: { type: String, required: true },
   price: { type: Number, required: true },
-  rating: { type: Number, required: true },
+  rating: { type: Number, required: true, default: 0.0 },
 });
 
 const Vehicle = models.Vehicle || model("Vehicle", vehicleSchema);

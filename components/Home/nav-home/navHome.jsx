@@ -1,8 +1,15 @@
 import Link from "next/link";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-import LoginLogout from "./login-logout";
 import UserAvatar from "./user-avatar";
-
+import ProtectedLinks from "./protected-links";
+import { Button } from "@/components/ui/button";
+import { FaCarSide } from "react-icons/fa";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 //TODO: Did basic responsiveness will turn into sheet if time remains
 
 const NavHome = () => {
@@ -12,14 +19,24 @@ const NavHome = () => {
         <Link href="/" className="text-3xl md:text-xl font-semibold">
           GOGO Rides
         </Link>
-        <div className="flex flex-col md:flex-row items-center gap-2 md:gap-5">
-          <Link href="/">Home</Link>
-          <Link href="/add">Add Product</Link>
-          <Link href="/cart">My Cart</Link>
-          <Link href="/vehicles">All Vehicles</Link>
-        </div>
-        <div className="gap-5 flex items-center">
-          <LoginLogout />
+        <div className="gap-5 flex flex-wrap items-center">
+          {/* //! All Vehicles Button */}
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link href="/vehicles">
+                  <Button variant="outline" size="icon">
+                    <FaCarSide className="size-5" />
+                  </Button>
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>All Vehicles</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
+          <ProtectedLinks />
 
           <ThemeToggle />
 

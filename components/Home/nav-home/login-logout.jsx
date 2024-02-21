@@ -5,6 +5,7 @@ import { Button } from "../../ui/button";
 import Link from "next/link";
 import { toast } from "sonner";
 import { usePathname } from "next/navigation";
+import { EnterIcon, ExitIcon } from "@radix-ui/react-icons";
 
 const LoginLogout = () => {
   const [user] = useAuthState(auth);
@@ -15,6 +16,7 @@ const LoginLogout = () => {
     <>
       {user ? (
         <Button
+          className="w-full items-center gap-1"
           onClick={async () => {
             try {
               const logOut = await signOut();
@@ -26,11 +28,13 @@ const LoginLogout = () => {
             }
           }}
         >
-          Sign Out
+          Sign Out <ExitIcon />
         </Button>
       ) : (
         <Link href={`/login?from=${pathname}`}>
-          <Button>Login</Button>
+          <Button className="w-full items-center gap-1">
+            Login <EnterIcon />
+          </Button>
         </Link>
       )}
     </>
