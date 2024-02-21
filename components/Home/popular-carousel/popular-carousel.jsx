@@ -51,7 +51,12 @@ export default function PopularCarousel() {
         </h4>
       </div>
 
-      <Carousel className="w-[95%] max-w-md mx-auto">
+      <Carousel
+        className="w-[95%] max-w-md mx-auto"
+        opts={{
+          loop: true,
+        }}
+      >
         <CarouselContent>
           {popularCarsData.map((car, index) => (
             <CarouselItem key={index}>
