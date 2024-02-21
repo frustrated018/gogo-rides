@@ -19,8 +19,12 @@ const ProtectedLinks = () => {
 
   //! Protection Function
   const handleProtection = (url) => {
-    toast.error("Coming soon");
-    console.log(url);
+    if (!user) {
+      router.push(`/login?from=${url}`);
+      toast.error("This is a protected route please login to use this.");
+      return;
+    }
+    router.push(`${url}`);
   };
 
   return (
@@ -29,7 +33,7 @@ const ProtectedLinks = () => {
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
-              onClick={() => handleProtection("/blah")}
+              onClick={() => handleProtection("/add")}
               variant="outline"
               size="icon"
             >
@@ -46,7 +50,7 @@ const ProtectedLinks = () => {
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
-              onClick={() => handleProtection("/blah")}
+              onClick={() => handleProtection("/cart")}
               variant="outline"
               size="icon"
             >

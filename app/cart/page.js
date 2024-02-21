@@ -1,9 +1,7 @@
-import NavHome from "@/components/Home/nav-home/navHome";
 
 const MyCart = () => {
   return (
     <>
-      <NavHome />
       <div className="min-h-screen grid place-items-center">
         <h2 className="text-4xl text-green-500 font-semibold">My Cart Page</h2>
       </div>
