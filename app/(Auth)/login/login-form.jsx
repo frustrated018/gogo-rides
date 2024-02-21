@@ -4,8 +4,8 @@ import { LoginUserExists } from "@/actions/auth-actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ReloadIcon } from "@radix-ui/react-icons";
-import { useRouter } from "next/navigation";
+import { ArrowTopRightIcon, ReloadIcon } from "@radix-ui/react-icons";
+import { useRouter, useSearchParams } from "next/navigation";
 import { FaGoogle } from "react-icons/fa6";
 import { toast } from "sonner";
 import { useFormStatus } from "react-dom";
@@ -14,10 +14,12 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { auth } from "@/firebase/config";
+import Link from "next/link";
 
 //! Submit button based on state
 function SubmitButton() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { pending } = useFormStatus();
   const [signInWithGoogle] = useSignInWithGoogle(auth);
 
@@ -33,13 +35,14 @@ function SubmitButton() {
       )}
       <p>Or</p>
       <Button
+        type="button"
         onClick={async () => {
           try {
             await signInWithGoogle();
             // TODO: make a db call to check if user already exisits
 
             toast.success("Welcome to Back!");
-            router.push("/");
+            router.push(`${searchParams.get("from")}`);
           } catch (error) {
             // TODO: Throw error from db
             toast.error("Couldn't sign up using Google!");
@@ -54,6 +57,7 @@ function SubmitButton() {
 }
 
 const LoginForm = () => {
+  const searchParams = useSearchParams();
   const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
   const router = useRouter();
 
@@ -73,7 +77,7 @@ const LoginForm = () => {
 
             // Display success message to the user
             toast.success("Welcome Back!!");
-            router.push("/");
+            router.push(`${searchParams.get("from")}`);
           } catch (error) {
             console.log(error);
             toast.error(`${error.message}`);
@@ -106,6 +110,13 @@ const LoginForm = () => {
         </div>
         <SubmitButton />
       </form>
+
+      <p className="inline-flex gap-1 text-base mx-auto mt-5">
+            Don&apos;t have an account?
+            <Link href={`/signup?from=${searchParams.get("from")}`} className="hover:underline flex items-center">
+              signup <ArrowTopRightIcon />
+            </Link>
+          </p>
     </div>
   );
 };

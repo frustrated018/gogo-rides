@@ -21,8 +21,17 @@ const VehicleDetails = async ({ params }) => {
   } catch (error) {
     console.log(error);
   }
-  const { image, name, type, price, rating, brand_name, details, owner_name } =
-    vehicle;
+  const {
+    _id,
+    image,
+    name,
+    type,
+    price,
+    rating,
+    brand_name,
+    details,
+    owner_name,
+  } = vehicle;
   return (
     <>
       <NavHome />

@@ -1,4 +1,3 @@
-import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import LoginForm from "./login-form";
 
@@ -19,12 +18,6 @@ const LoginPage = () => {
         {/* //! Right section */}
         <div className="md:w-1/2 w-full min-h-screen flex justify-center items-center flex-col">
           <LoginForm />
-          <p className="inline-flex gap-1 text-base mx-auto mt-5">
-            Don&apos;t have an account?
-            <Link href="/signup" className="hover:underline flex items-center">
-              signup <ArrowTopRightIcon />
-            </Link>
-          </p>
         </div>
       </section>
     </main>

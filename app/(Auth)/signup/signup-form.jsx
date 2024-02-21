@@ -13,14 +13,16 @@ import {
   useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
-import { useRouter } from "next/navigation";
-import { ReloadIcon } from "@radix-ui/react-icons";
+import { useRouter, useSearchParams } from "next/navigation";
+import { ArrowTopRightIcon, ReloadIcon } from "@radix-ui/react-icons";
 import { FaGoogle } from "react-icons/fa6";
+import Link from "next/link";
 
 //! Submit button based on state
 function SubmitButton() {
   const router = useRouter();
   const { pending } = useFormStatus();
+  const searchParams = useSearchParams();
   const [signInWithGoogle] = useSignInWithGoogle(auth);
 
   return (
@@ -35,13 +37,14 @@ function SubmitButton() {
       )}
       <p>Or</p>
       <Button
+        type="button"
         onClick={async () => {
           try {
             await signInWithGoogle();
             // TODO: make a db call to check if user already exisits
 
             toast.success("Welcome to GOGO Rides!");
-            router.push("/");
+            router.push(`${searchParams.get("from")}`);
           } catch (error) {
             // TODO: Throw error from db
             toast.error("Couldn't sign up using Google!");
@@ -58,6 +61,7 @@ function SubmitButton() {
 const SignupForm = () => {
   const formRef = useRef();
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const [createUserWithEmailAndPassword] =
     useCreateUserWithEmailAndPassword(auth);
@@ -96,7 +100,7 @@ const SignupForm = () => {
 
             // resetting form & Showing toast
             formRef.current.reset();
-            router.push("/");
+            router.push(`${searchParams.get("from")}`);
             toast.success("Hi! Welcome to GOGO Rides.", {
               duration: 4000,
             });
@@ -156,6 +160,16 @@ const SignupForm = () => {
 
         <SubmitButton />
       </form>
+
+      <p className="inline-flex gap-1 text-base mx-auto mt-5">
+        Already have an account?{" "}
+        <Link
+          href={`/login?from=${searchParams.get("from")}`}
+          className="hover:underline flex items-center"
+        >
+          Login <ArrowTopRightIcon />
+        </Link>
+      </p>
     </div>
   );
 };
