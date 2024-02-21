@@ -22,8 +22,6 @@ export const addToCart = async (vehicleId, userEmail) => {
       throw new Error("User not found in database");
     }
 
-    console.log("Serverside user:", user);
-
     // Check if vehicle exists in DB
     const vehicle = await Vehicle.findById(vehicleId);
     if (!vehicle) {
@@ -31,15 +29,14 @@ export const addToCart = async (vehicleId, userEmail) => {
     }
 
     // Check if vehicle is in users cart already
-    const cart = await Cart.findOne({ user: userEmail });
+    const cart = await Cart.findOne({ user: user?._id });
     if (cart && cart.vehicles.includes(vehicleId)) {
       throw new Error("Vehicle already exists in your cart.");
     }
 
     // If it meets all the conditions add the thing to users cart
-
     if (!cart) {
-      await Cart.create({ user: userEmail, vehicles: [vehicleId] });
+      await Cart.create({ user: user?._id, vehicles: [vehicleId] });
     } else {
       // If the user already has a cart, update it
       cart.vehicles.push(vehicleId);
