@@ -1,4 +1,5 @@
 "use client";
+import { addToCart } from "@/actions/cart-actions";
 import { Button } from "@/components/ui/button";
 import { auth } from "@/firebase/config";
 import { PlusIcon } from "@radix-ui/react-icons";
@@ -11,14 +12,24 @@ const AddToCart = () => {
   const pathname = usePathname();
   const [user] = useAuthState(auth);
 
+  const userEmail = user?.email;
+  const vehicleId = pathname.split("/")[2];
+
   //! Handle Add to cart
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!user) {
-      toast.error("Please login to add items to your cart");
       router.push(`/login?from=${pathname}`);
+      toast.error("Please login to add items to your cart");
       return;
     }
-    toast.info("Adding add to cart soon");
+
+    try {
+      const res = await addToCart(vehicleId, userEmail);
+      toast.success(res.message);
+    } catch (error) {
+      console.log("Error From client: ", error);
+      toast.error(error.message);
+    }
   };
   return (
     <>
