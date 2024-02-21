@@ -15,7 +15,6 @@ const Vehicles = async () => {
 
   return (
     <>
-      <NavHome />
       <section className="min-h-screen">
         <h2 className="text-lg md:text-xl xl:text-4xl ml-5 mt-10">
           Total Vehicles listed for sale: ({data.length})
@@ -28,7 +27,6 @@ const Vehicles = async () => {
         )}
         {/* Mapping and showing cards */}
       </section>
-      <FooterHome />
     </>
   );
 };

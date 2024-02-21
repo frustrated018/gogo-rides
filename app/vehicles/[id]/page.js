@@ -34,7 +34,6 @@ const VehicleDetails = async ({ params }) => {
   } = vehicle;
   return (
     <>
-      <NavHome />
       <Card className="mx-auto my-10 flex min-h-[80vh] w-[90%] flex-col md:flex-row">
         <section className="h-[500px] w-full rounded-bl-none rounded-tl-lg rounded-tr-lg bg-secondary md:h-auto md:w-1/2 md:rounded-bl-lg md:rounded-tr-none">
           <div className="relative mx-auto h-full w-full rounded-bl-none rounded-tl-lg rounded-tr-lg md:rounded-bl-lg md:rounded-tr-none">
@@ -66,7 +65,6 @@ const VehicleDetails = async ({ params }) => {
           </CardFooter>
         </section>
       </Card>
-      <FooterHome />
     </>
   );
 };
