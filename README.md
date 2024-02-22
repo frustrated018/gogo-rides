@@ -8,6 +8,6 @@
 
 ## View Live Site
 
-<p align="center">
-  [View Demo](https://gogo-rides.vercel.app)
-</p>
+<div align="center">
+<a href="https://gogo-rides.vercel.app">View Demo</a>
+<span>
