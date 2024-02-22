@@ -9,5 +9,5 @@
 ## View Live Site
 
 <p align="center">
-  [Veiw Demo](https://gogo-rides.vercel.app) 
+  [View Demo](https://gogo-rides.vercel.app)
 </p>
