@@ -10,4 +10,4 @@
 
 <div align="center">
 <a href="https://gogo-rides.vercel.app">View Demo</a>
-<span>
+<div>
